@@ -14,6 +14,6 @@ mkdir .codk_setup
 cd .codk_setup
 git clone https://github.com/shotastage/CoreOverlay.git
 cd CoreOverlay
-swift build
+make build
 cd
 rm -rf .codk_setup
