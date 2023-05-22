@@ -1,5 +1,27 @@
 #!/usr/bin/env bash
 
+
+# Platform Check
+detect_os() {
+    if [ "$(uname)" == "Darwin" ]; then
+        # macOS
+        echo "macOS"
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        # Linux
+        echo "Linux"
+    elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+        # Windows (Cygwin)
+        echo "Windows"
+    else
+        # Unknown OS
+        echo "Unknown"
+    fi
+}
+
+
+os=$(detect_os)
+
+
 # Install Homebrew
 
 if [ -e /Applications/Xcode.app ]; then
